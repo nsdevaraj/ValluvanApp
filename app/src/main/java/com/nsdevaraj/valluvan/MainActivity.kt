@@ -1,6 +1,8 @@
 package com.nsdevaraj.valluvan
 
 import android.os.Bundle
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -17,16 +19,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent {
-            ValluvanTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Vallu",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
+        setContentView(R.layout.activity_main) // Set the content view to the layout with WebView
+
+        val webView: WebView = findViewById(R.id.webview)
+        webView.webViewClient = WebViewClient() // Ensures links open in the WebView
+        webView.loadUrl("https://valluvan.netlify.app/") // Load the specified URL
     }
 }
 
