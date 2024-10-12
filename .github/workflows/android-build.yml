@@ -28,6 +28,13 @@ jobs:
     - name: Build APK
       run: ./gradlew assembleRelease --no-daemon
 
+    - name: Verify APK exists
+      run: |
+        if [ ! -f app/build/outputs/apk/release/app-release-unsigned.apk ]; then
+          echo "APK not found!"
+          exit 1
+        fi
+
     - name: Sign APK
       env:
         KEYSTORE_PATH: ${{ secrets.KEYSTORE_PATH }}
