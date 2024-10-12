@@ -22,7 +22,8 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.activity_main) // Set the content view to the layout with WebView
 
         val webView: WebView = findViewById(R.id.webview)
-        webView.webViewClient = WebViewClient() // Ensures links open in the WebView
+        webView.settings.javaScriptEnabled = true // Enable JavaScript if needed
+        webView.webViewClient = WebViewClient() // Ensure WebViewClient is set
         webView.loadUrl("https://valluvan.netlify.app/") // Load the specified URL
     }
 }
