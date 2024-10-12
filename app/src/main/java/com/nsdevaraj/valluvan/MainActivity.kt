@@ -4,11 +4,7 @@ import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,6 +20,13 @@ class MainActivity : ComponentActivity() {
         val webView: WebView = findViewById(R.id.webview)
         webView.settings.javaScriptEnabled = true // Enable JavaScript if needed
         webView.webViewClient = WebViewClient() // Ensure WebViewClient is set
+
+        // Clear cache
+       // webView.clearCache(true)
+
+        // Disable cache
+       // webView.settings.cacheMode = WebSettings.LOAD_NO_CACHE // Corrected line
+
         webView.loadUrl("https://valluvan.netlify.app/") // Load the specified URL
     }
 }
