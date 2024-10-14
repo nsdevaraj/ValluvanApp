@@ -30,19 +30,3 @@ class MainActivity : ComponentActivity() {
         webView.loadUrl("https://valluvan.netlify.app/") // Load the specified URL
     }
 }
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ValluvanTheme {
-        Greeting("Android")
-    }
-}
